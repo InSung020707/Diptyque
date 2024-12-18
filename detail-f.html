@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Diptyque</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="icon" href="pic/extra/favicon.svg" type="image/png" sizes="32x32">
+</head>
+<body>
+	<div class="section1">
+		<div class="header">
+			<a href="index.html" class="logo">DIPTYQUE</a>
+			<div class="nav">
+				<a href="#">FRAGRANCES</a>
+  				<a href="#">CANDLES & HOME</a>
+  				<a href="#">BATH AND BODY</a>
+  				<a href="#">SERVICES</a>
+			</div>
+			<a href="#" class="toggle-menu">
+               <img src="pic/menu.svg"> 
+            </a>
+		</div>
+	</div>
+	<div class="path">
+		<a href="index.html">home</a>
+		<img src="pic/Polygon.svg">
+		<a href="index.html">best-seller</a>
+		<img src="pic/Polygon.svg">
+		<a href="custom.html">Fleur de peau</a>
+	</div>
+	<div class="select">
+		<div class="contents">
+	      <div class="details">
+	        <div class="photo">
+	          <img src="pic/main/fleur de peau-parfum/fleur de peau.png">
+	        </div>
+	        <div class="adjust">
+	          <div class="first">Fleur de peau</div>
+	          <div class="second">Eau de parfum</div>
+	          <p>An ancient myth translated into perfume. For Diptyque,<br>only musks could do justice.</p>
+	          <div class="colors-container">
+	          	<p class="gradient-text" id="text">Top Note: pink pepper, bergamot</p>
+				<div class="gradient-box-f"></div>
+				<div class="font-size-container">
+					<div class="fontsize">
+						<div class="forthebar">
+							<label>Select a format<span class="format-label">75ml</span></label>
+						</div>
+						<input name="format" type="range" value="75" min="30" max="120" step="10">
+						<p class = "tip">Available in 30ml-120ml, 10ml increments.</p>
+					</div>
+				</div>
+				<div class="pics">
+					<img src="pic/main/fleur de peau-parfum/fleur de peau.png" class="pic-first">
+					<img src="pic/main/fleur de peau-parfum/fleur de peau'.png" class="pic-second">
+					<img src="pic/main/fleur de peau-parfum/fleur de peau-d2.png" class="pic-third">
+				</div>
+	          </div>
+	          <p2>$<span class="price">230</span></p2>
+	          <div class="buttons">
+	            <a class="button-selected-A">add to bag</a>
+	            <a class="buttonB" href="index.html">return shoping</a>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	</div>
+	<div class="final-logo">
+		<a href="#">DIPTYQUE</a>
+		<div class="text">
+			<p>Sign up to our newsletter so we can welcome you to the<br> Diptyque community and keep you posted on new<br> launches, events, special offers and more.</p>
+			<div class="button">discover &#62;</div>
+		</div>
+	</div>	
+	<div class="footer">
+		<div class="mini-foot1">
+			<a href="#"><img src="https://i.postimg.cc/3wFt6W83/1-Zp-U8hn-Nxxo-A4m-Ix-U-8-N2-RQ-removebg-preview.png" alt="SNS"></a>	
+			<p>Change Location : South Korea &#10148;</p>
+		</div>
+		<div class= mini-foot2>
+			<p>Be the first to know about exciting new designs,<br> special events, store openings and much more.</p>
+			<a href="#">Email</a>
+			<div class="button">Sign Up</div>
+		</div>
+		<div class= mini-foot3>
+			<b>© DIPTYQUE. 2024</b>
+		</div>
+	</div>
+</body>
+<script>
+	//*header*//
+const headerTag = document.querySelector("div.header")
+    document.addEventListener("scroll", function(){
+      
+      const pixels = window.scrollY;
+
+      if(pixels >= headerTag.getBoundingClientRect().height){
+        headerTag.classList.add("scrolled");
+      }else{
+        headerTag.classList.remove("scrolled");
+      }
+
+    })
+//텍스트
+const messages = ["Top Note: pink pepper, vergamot", "Middle Note:  iris, turkish rose", "Base Note: musk, ambrette"];
+const textElement = document.getElementById("text");
+let index = 0;
+
+setInterval(() => {
+  index = (index + 1) % messages.length;
+  textElement.textContent = messages[index];
+}, 3500);
+
+//*용량 가격*//
+const formatsizeInput = document.querySelector("input[name=format]");
+const formatsizeLabel = document.querySelector(".format-label");
+const priceTag = document.querySelector("span.price");
+
+formatsizeInput.addEventListener("input", function() {
+  formatsizeLabel.innerHTML = `${this.value}ml`;
+
+const price = Math.round(150 + (this.value / 100) * 250);
+  priceTag.innerHTML = `${price}`;
+});
+
+//*이미지*//
+const firstButton = document.querySelector('div.pics img.pic-first');
+const secondButton = document.querySelector('div.pics img.pic-second');
+const thirdButton = document.querySelector('div.pics img.pic-third');
+
+const imgTag = document.querySelector('div.photo img');
+
+firstButton.addEventListener('click', function(){
+  imgTag.src ="pic/main/fleur de peau-parfum/fleur de peau.png";
+});
+secondButton.addEventListener('click', function(){
+  imgTag.src ="pic/main/fleur de peau-parfum/fleur de peau'.png";
+});
+thirdButton.addEventListener('click', function(){
+  imgTag.src ="pic/main/fleur de peau-parfum/fleur de peau-d2.png";
+});
+</script>
+</html>
