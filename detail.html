@@ -87,5 +87,57 @@
 		</div>
 	</div>
 </body>
-<script src="script.js"></script>
+<script>
+	//*header*//
+const headerTag = document.querySelector("div.header")
+    document.addEventListener("scroll", function(){
+      
+      const pixels = window.scrollY;
+
+      if(pixels >= headerTag.getBoundingClientRect().height){
+        headerTag.classList.add("scrolled");
+      }else{
+        headerTag.classList.remove("scrolled");
+      }
+
+    })
+//텍스트
+const messages = ["Top Note: figs, fig leaves", "Middle Note:  green notes, coconut", "Base Note: Fig tree, cedar wood, woody note"];
+const textElement = document.getElementById("text");
+let index = 0;
+
+setInterval(() => {
+  index = (index + 1) % messages.length;
+  textElement.textContent = messages[index];
+}, 3500);
+
+//*용량 가격*//
+const formatsizeInput = document.querySelector("input[name=format]");
+const formatsizeLabel = document.querySelector(".format-label");
+const priceTag = document.querySelector("span.price");
+
+formatsizeInput.addEventListener("input", function() {
+  formatsizeLabel.innerHTML = `${this.value}ml`;
+
+const price = Math.round(150 + (this.value / 100) * 250);
+  priceTag.innerHTML = `${price}`;
+});
+
+//*이미지*//
+const firstButton = document.querySelector('div.pics img.pic-first');
+const secondButton = document.querySelector('div.pics img.pic-second');
+const thirdButton = document.querySelector('div.pics img.pic-third');
+
+const imgTag = document.querySelector('div.photo img');
+
+firstButton.addEventListener('click', function(){
+  imgTag.src ="pic/main/philosykos-parfum/philosykos.png";
+});
+secondButton.addEventListener('click', function(){
+  imgTag.src ="pic/main/philosykos-parfum/philosykos'.png";
+});
+thirdButton.addEventListener('click', function(){
+  imgTag.src ="pic/main/philosykos-parfum/philosykos-d2.png";
+});
+</script>
 </html>
